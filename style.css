@@ -1,0 +1,923 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: white;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* === NAVIGATION === */
+.nav {
+    position: fixed;
+    top: 10px;
+    left: 0;
+    right: 0;
+    width: 90%;
+    max-width: 1200px; 
+    margin: 0 auto;    
+    border-radius: 10px;
+    z-index: 1000;
+    padding: 5px 0;
+    background-color: #fff;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.cont-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo {
+    height: 40px; 
+}
+
+.hotbar ul {
+    list-style: none;
+    display: flex;
+}
+
+.hotbar li {
+    margin: 0 11px;
+}
+
+.hotbar a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition: color 0.3s;
+    /* MODIFIKASI 3A: Tambahkan position relative untuk menampung garis hover */
+    position: relative;
+}
+
+.hotbar a i {
+    margin-right: 8px; 
+}
+
+/* MODIFIKASI 3B: Garis bawah biru yang tersembunyi */
+.hotbar a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px; 
+    bottom: -5px; 
+    left: 0;
+    background-color: #115cd6; 
+    transform: scaleX(0); 
+    transition: transform 0.3s ease-out; 
+    border-radius: 5px;
+}
+
+/* MODIFIKASI 3C: Tampilkan garis saat hover */
+.hotbar a:hover::after {
+    transform: scaleX(1);
+}
+/* ========================================= */
+
+.hotbar a:hover {
+    color: #115cd6;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    color: #115cd6;
+    cursor: pointer;
+}
+
+/* === HOME SECTION === */
+.home {
+    width: 100%;
+    min-height: 100vh; 
+    background: linear-gradient(rgba(109, 156, 251, 1), rgb(216, 229, 255, 0.5));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px; 
+}
+
+.cont-top {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap; 
+}
+
+.content-kiri {
+    flex: 1;
+    min-width: 300px; 
+    padding-top: 20px; 
+}
+
+.judul {
+    font-size: 2.6rem; 
+    font-weight: 900;
+    line-height: 1.1;
+    margin: 0 0 20px 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    font-family: "Noto Sans TC", sans-serif;
+}
+
+.g-blue { color: #4285F4; } /* Biru */
+.o-red { color: #DB4437; } /* Merah */
+.o-yellow { color: #F4B400; } /* Kuning */
+.l-green { color: #0F9D58; } /* Hijau */
+
+.deskripsi {
+    font-size: 1.2em;
+    font-weight: bold;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    max-width: 90%;
+    background-image: linear-gradient(to right, rgb(34, 93, 159), rgb(89, 182, 244));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.btn-buy {
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: #071431;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+
+.btn-buy:hover {
+    transform: scale(1.05);
+    background-color: #fff;
+    color: black;
+}
+
+.content-kanan {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+}
+
+.img-section {
+    width: 100%;
+    max-width: 500px; 
+    height: auto;
+}
+
+.img-section img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+@keyframes slideInFromBottom {
+    0% { opacity: 0; transform: translateY(50px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInFromRight {
+    0% { opacity: 0; transform: translateX(50px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+.content-kiri { opacity: 0; animation: slideInFromBottom 1s ease-out forwards; }
+.content-kanan { opacity: 0; animation: slideInFromRight 1s ease-out forwards; animation-delay: 0.3s; }
+
+/* === ABOUT US === */
+.about {
+    min-height: 100vh;
+    padding: 80px 20px;
+    display: flex;
+    background: linear-gradient(rgb(216, 229, 255, 0.5),whitesmoke);
+}
+
+.container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap; 
+}
+
+.content-left, .content-right {
+    flex: 1;
+    min-width: 300px;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border: 5px solid white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-info {
+    text-align: right;
+    margin-top: 10px;
+    font-size: 0.8em;
+    color: #666; 
+}
+
+.main-title {
+    font-size: 3em; 
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    color: #000;
+}
+
+.description {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #000;
+}
+
+.btn-learn-more {
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: #1100ff;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-learn-more:hover {
+    transform: scale(1.05);
+    background-color: #5599ff;
+}
+
+/* === BENEFIT === */
+.benefit {
+    text-align: center;
+    padding: 80px 20px;
+    min-height: 80vh;
+    background-color: whitesmoke;
+    background-size: cover; 
+}
+
+.benefit h1 {
+    color: #004085;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    
+}
+
+.benefit h1::after {
+    content: ''; 
+    position: absolute; 
+    left: 50%; transform: 
+    translateX(-50%); 
+    bottom: 0;
+    width: 100px; 
+    height: 4px; 
+    background-color: #007bff; 
+    border-radius: 2px;
+}
+
+.box-kolom {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; 
+    margin: 0 auto;
+}
+
+.box-layanan {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 280px; 
+    padding-bottom: 20px;
+    transition: transform 0.3s;
+    margin-top: 0;
+}
+
+.box-layanan:hover {
+    transform: translateY(-10px);
+}
+
+.box-layanan i {
+    font-size: 2.5em;
+    color: #007bff;
+    margin: 20px auto;
+    display: block; 
+}
+
+.box-layanan h2 {
+    color: #000;
+    margin: 10px 15px;
+    font-size: 1.3em;
+}
+
+.box-layanan p {
+    color: #666;
+    margin: 0 15px;
+    font-size: 0.9em;
+}
+
+/* === JASA === */
+.jasa {
+    background: linear-gradient(135deg, #0d314d, #176ea8);
+    padding: 100px 20px;
+    text-align: center;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.jasa::before {
+    content: ''; 
+    position: absolute; 
+    top: -50px; 
+    left: -50px; 
+    width: 200px; 
+    height: 200px;
+    background: rgba(6, 113, 227, 0.221); 
+    border-radius: 50%; z-index: 1;
+}
+.jasa::after {
+    content: ''; 
+    position: absolute; 
+    bottom: 50px; 
+    right: 50px; 
+    width: 150px; 
+    height: 150px;
+    background: rgba(255, 193, 7, 0.1); 
+    transform: rotate(30deg); border-radius: 15px; z-index: 1;
+}
+
+.jasa h1, .box { 
+    position: relative; 
+    z-index: 5; 
+}
+
+.jasa h1 {
+    color: #2088f8;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+}
+
+.jasa h1::after {
+    content: ''; 
+    position: absolute; 
+    left: 50%; transform: 
+    translateX(-50%); 
+    bottom: 0;
+    width: 100px; 
+    height: 4px; 
+    background-color: #2f74bd; 
+    border-radius: 2px;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; 
+    gap: 40px;
+    align-items: center; 
+}
+
+.box-jasa {
+    padding: 30px;
+    border: none;
+    border-radius: 12px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    cursor: pointer; 
+    background-color: #ffffff; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.box-jasa:hover { 
+    transform: translateY(-10px); 
+}
+
+.box-jasa img {
+    width: 100%; 
+    max-height: 150px; 
+    object-fit: contain; 
+    margin-bottom: 20px; 
+}
+
+.box-jasa h2 { 
+    color: #007bff; 
+    font-size: 1.5em; 
+    margin-bottom: 10px; 
+}
+
+.harga {
+    display: block; 
+    font-size: 2em; font-weight:
+    bold; color: #004085;
+    margin-bottom: 15px; 
+}
+
+.box-jasa p { color: #6c757d; 
+    font-size: 1em; 
+    margin-bottom: 25px; 
+}
+
+.box-jasa.highlight {
+    background: #007bff; 
+    color: white;
+    transform: scale(1.05); 
+    box-shadow: 0 20px 50px rgba(0, 123, 255, 0.3);
+    position: relative;
+    z-index: 10;
+    height: 490px;
+}
+.badge-populer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #ffc107;
+    color: #004085; 
+    padding: 8px 20px;
+    border-radius: 0 12px 0 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 8px rgba(255, 193, 7, 0.4);
+    transform: rotate(2deg); 
+}
+
+.box-jasa.highlight h2,
+.box-jasa.highlight .harga,
+.box-jasa.highlight p { 
+    color: white; 
+}
+.box-jasa.highlight .btn-beli { 
+    background: #ffc107; 
+    color: #004085; 
+}
+
+.box-jasa.highlight:hover {
+    transform: translateY(-5px) scale(1.06); 
+}
+
+.btn-beli {
+    display: inline-block; 
+    background: #1e90ff; 
+    color: white; 
+    padding: 10px 25px;
+    text-decoration: none; 
+    border-radius: 50px; 
+    border: none; 
+    cursor: pointer; 
+    font-weight: 600;
+}
+
+/* === TESTIMONIAL === */
+.testimonial {
+    padding: 100px 20px; 
+    background: linear-gradient(145deg, #e6e9f0 0%, #f4f7f9 100%); 
+    text-align: center;
+    color: #333;
+    position: relative;
+    
+}
+
+.testimonial::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at 10% 20%, rgba(200, 220, 250, 0.3) 0%, rgba(200, 220, 250, 0.05) 90%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.testimonial h1 {
+    color: #004085;
+    font-size: 2.8em; 
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 2;
+}
+
+.slider-container {
+    max-width: 100%; 
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden; 
+    z-index: 2; 
+    padding: 0 10px; 
+    cursor: grab;
+}
+
+/* Perhitungan untuk 10 slide (5 asli + 5 duplikasi di HTML):
+   320px * 10 slide + 40px * 9 gap = 3560px */
+.slider-wrapper {
+    display: flex;
+    width: 3560px; 
+    gap: 40px; 
+    padding: 20px 0; 
+    animation: marquee 35s linear infinite; 
+}
+
+.slide {
+    flex: 0 0 320px; 
+    padding: 50px 40px; 
+    background-color: #ffffff; 
+    border-radius: 20px; 
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); 
+    min-height: 280px; 
+    position: relative;
+}
+
+/* Menggeser sejauh 5 slide + 4 gap = (320*5) + (40*4) = 1760px. Dibulatkan ke 1800px */
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-1800px); } 
+}
+
+.prev-btn, .next-btn, .dots-container {
+    display: none;
+}
+
+.rating {
+    color: #ffc107; 
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.rating i {
+    margin: 0 1px;
+}
+
+.slide::before {
+    content: "\f10d"; 
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 3.5em;
+    color: #007bff;
+    opacity: 0.2;
+    z-index: 0;
+}
+
+.slide .quote {
+    font-size: 1.3em; 
+    font-style: italic;
+    margin-bottom: 25px;
+    line-height: 1.7;
+    position: relative;
+    z-index: 1; 
+}
+
+.client-info {
+    border-top: 2px solid #e9ecef; 
+    padding-top: 15px;
+    margin-top: 15px;
+    font-size: 1em; 
+    color: #555;
+    position: relative;
+    z-index: 1;
+}
+
+.client-info strong {
+    display: block;
+    font-size: 1.2em;
+    color: #004085; 
+}
+
+/* === KONTAK === */
+.kontak { 
+    padding: 60px 20px; 
+    text-align: center; 
+    background: #f4f4f4; 
+    color: #333; 
+}
+.kontak h2 { 
+    color: #007bff; 
+    margin-bottom: 10px; 
+    font-size: 2.5em; 
+}
+
+.info-kontak {
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: center; 
+    gap: 30px;
+    padding-top:10px ;
+}
+.item-kontak {
+    background: #fff; 
+    padding: 30px; 
+    width: 280px; 
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.item-kontak i { 
+    font-size: 2.5em; 
+    color: #007bff; 
+    margin-bottom: 15px;
+}
+
+.item-kontak a {
+    display: inline-block; 
+    padding: 10px 20px; 
+    background: #007bff;
+    color: white; 
+    text-decoration: none; 
+    border-radius: 5px; 
+    margin-top: 10px;
+}
+
+.map-container {
+    margin: 30px auto;
+    max-width: 800px;
+    height: 400px; 
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    position: relative; 
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.map-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.75); 
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    text-align: center;
+    z-index: 10;
+    pointer-events: none; 
+}
+
+.map-overlay p {
+    margin: 0;
+}
+
+.kantor-pusat-detail {
+    max-width: 800px;
+    margin: 30px auto 50px;
+    text-align: left;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.kantor-pusat-detail h2 {
+    color: #004085;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+.kantor-pusat-detail ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.kantor-pusat-detail li {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.kantor-pusat-detail li i {
+    color: #007bff;
+    margin-right: 15px;
+    font-size: 1.2em;
+    width: 20px;
+    text-align: center;
+}
+
+
+/* === FOOTER === */
+footer {
+    background-color: #333; 
+    color: white; 
+    padding: 20px; text-align: 
+    center; 
+    border-top: 5px solid #007bff;
+}
+
+/* === MODAL POPUP === */
+    .modal {
+        display: none; 
+        position: fixed; 
+        z-index: 2000; 
+        left: 0; 
+        top: 0;
+        width: 100%; 
+        height: 100%; 
+        background-color: rgba(0, 0, 0, 0.6);
+        justify-content: center; 
+        align-items: center;
+    }
+    .modal.is-active { 
+        display: flex;
+    }
+
+    .modal-content {
+        background: #fff; 
+        padding: 20px; 
+        border-radius: 10px; 
+        width: 90%; 
+        max-width: 450px;
+        position: relative; 
+        text-align: center; 
+        color: #000;
+    }
+    .close-btn { 
+        position: absolute; 
+        right: 20px; 
+        top: 10px; 
+        font-size: 28px; 
+        cursor: pointer; 
+        color: #aaa; 
+    }
+
+    .btn-beli-popup {
+        background: #007bff; 
+        color: white; 
+        padding: 10px 20px; 
+        border: none;
+        border-radius: 5px; 
+        cursor: pointer; 
+        margin-top: 15px;
+    }
+
+/* === MEDIA QUERIES (RESPONSIVE) === */
+
+@media (max-width: 768px) {
+    /* Menu Toggle Far Right (Modifikasi sebelumnya) */
+    .hotbar { 
+        order: 1; 
+        flex-grow: 1; 
+    }
+    .menu-toggle { 
+        display: block; 
+        order: 2; 
+    }
+    
+    .hotbar ul {
+        display: none; 
+        flex-direction: column;
+        position: absolute;
+        top: 60px; left: 0; right: 0;
+        background: white;
+        padding: 20px;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+        border-radius: 0 0 10px 10px;
+        gap: 15px;
+    }
+   
+    /* Penting: Matikan efek hover garis biru pada mobile menu item, 
+       karena akan tetap terlihat saat menu tertutup jika tidak diatur */
+    .hotbar ul li a::after {
+        display: none;
+    }
+
+    .hotbar.active ul { 
+        display: flex; 
+    } 
+    .home { 
+        flex-direction: 
+        column; 
+        padding-top: 120px; 
+        height: auto; 
+        padding-bottom: 50px;
+     }
+    .cont-top { 
+        flex-direction: column-reverse; 
+        text-align: center;
+     }
+    .content-kiri, .content-kanan { 
+        max-width: 100%; 
+    }
+    .judul {
+        font-size: 2.5rem; 
+    }
+    .deskripsi { 
+        margin: 0 auto 30px;
+    }
+    .container { 
+        flex-direction: column; 
+    }
+    .content-left, .content-right {
+         max-width: 100%; 
+         text-align: center;
+         }
+    .main-title { 
+        font-size: 2.5rem; 
+    }
+    .box-jasa.highlight { 
+        transform: scale(1);
+     }
+    .testimonial { 
+        padding: 50px 10px; 
+    }
+    .testimonial h1 { 
+        font-size: 2em; 
+        margin-bottom: 30px; 
+    }
+    .slider-wrapper {
+        gap: 20px; 
+        width: calc(900vw + 180px); 
+        animation: marquee-mobile 40s linear infinite; 
+    }
+
+    .slide {
+        flex: 0 0 90vw; 
+        padding: 30px 20px;
+        min-height: 200px;
+        border-radius: 15px;
+    }
+
+    @keyframes marquee-mobile {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-450vw - 80px)); } 
+    }
+
+    .map-container { 
+        height: 300px;
+    }
+    .map-overlay { 
+        font-size: 0.9em; 
+        padding: 10px 20px; 
+    }
+    
+    .kantor-pusat-detail {
+        padding: 15px;
+    }
+    .kantor-pusat-detail li {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .judul { font-size: 2rem; }
+    .nav { 
+        width: 95%; 
+        margin-left: 0; 
+        margin-right: 0; 
+        left: 2.5%; 
+    } 
+}
